@@ -151,3 +151,4 @@ def displayParameterWidgets():
   display(angleTypeSelector)
   display(alphaSelector)
   display(iterationsSelector)
+  return null
