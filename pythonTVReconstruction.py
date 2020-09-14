@@ -1,7 +1,7 @@
 import numpy as np
 import ipywidgets as widget
 
-def displayParameterWidgets( ):
+def displayParameterWidgets():
   # Define processing parameters
   anglesSelector = widget.Dropdown(
       options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
