@@ -117,37 +117,37 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
   #plt.imshow(u)
   return u
 
-  def displayParameterWidgets():
-    # Define processing parameters
-    anglesSelector = widgets.Dropdown(
-        options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
-        value=120,
-        description='Number of Angles:',
-        disabled=False,
-    )
+def displayParameterWidgets():
+  # Define processing parameters
+  anglesSelector = widgets.Dropdown(
+      options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
+      value=120,
+      description='Number of Angles:',
+      disabled=False,
+  )
 
-    angleTypeSelector = widgets.Dropdown(
-        options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
-        value='sparse',
-        description='Type of Angles',
-        disabled=False,
-    )
+  angleTypeSelector = widgets.Dropdown(
+      options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
+      value='sparse',
+      description='Type of Angles',
+      disabled=False,
+  )
 
-    alphaSelector = widgets.Dropdown(
-        options=[('10⁻⁴', -4), ('1', 0), ('10^4', 4)],
-        value=0,
-        description='Regularisation Parameter:',
-        disabled=False,
-    )
+  alphaSelector = widgets.Dropdown(
+      options=[('10⁻⁴', -4), ('1', 0), ('10^4', 4)],
+      value=0,
+      description='Regularisation Parameter:',
+      disabled=False,
+  )
 
-    iterationsSelector = widgets.Dropdown(
-        options=[1, 10, 100, 1000, 10000],
-        value=1,
-        description='Number of Iterations:',
-        disabled=False,
-    )
+  iterationsSelector = widgets.Dropdown(
+      options=[1, 10, 100, 1000, 10000],
+      value=1,
+      description='Number of Iterations:',
+      disabled=False,
+  )
 
-    display(anglesSelector)
-    display(angleTypeSelector)
-    display(alphaSelector)
-    display(iterationsSelector)
+  display(anglesSelector)
+  display(angleTypeSelector)
+  display(alphaSelector)
+  display(iterationsSelector)
