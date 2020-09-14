@@ -1,6 +1,41 @@
 import numpy as np
 import ipywidgets as widget
 
+def displayParameterWidgets( ):
+  # Define processing parameters
+  anglesSelector = widget.Dropdown(
+      options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
+      value=120,
+      description='Number of Angles:',
+      disabled=False,
+  )
+
+  angleTypeSelector = widget.Dropdown(
+      options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
+      value='sparse',
+      description='Type of Angles',
+      disabled=False,
+  )
+
+  alphaSelector = widget.Dropdown(
+      options=[('10⁻⁴', -4), ('1', 0), ('10^4', 4)],
+      value=0,
+      description='Regularisation Parameter:',
+      disabled=False,
+  )
+
+  iterationsSelector = widget.Dropdown(
+      options=[1, 10, 100, 1000, 10000],
+      value=1,
+      description='Number of Iterations:',
+      disabled=False,
+  )
+
+  display(anglesSelector)
+  display(angleTypeSelector)
+  display(alphaSelector)
+  display(iterationsSelector)
+
 def proximal(u, alpha, p):
   # Solves v + alpha*v^(p-1) = u for non-negative u
   if(p == 2):
@@ -116,38 +151,3 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
 
   #plt.imshow(u)
   return u
-
-def displayParameterWidgets( ):
-  # Define processing parameters
-  anglesSelector = widget.Dropdown(
-      options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
-      value=120,
-      description='Number of Angles:',
-      disabled=False,
-  )
-
-  angleTypeSelector = widget.Dropdown(
-      options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
-      value='sparse',
-      description='Type of Angles',
-      disabled=False,
-  )
-
-  alphaSelector = widget.Dropdown(
-      options=[('10⁻⁴', -4), ('1', 0), ('10^4', 4)],
-      value=0,
-      description='Regularisation Parameter:',
-      disabled=False,
-  )
-
-  iterationsSelector = widget.Dropdown(
-      options=[1, 10, 100, 1000, 10000],
-      value=1,
-      description='Number of Iterations:',
-      disabled=False,
-  )
-
-  display(anglesSelector)
-  display(angleTypeSelector)
-  display(alphaSelector)
-  display(iterationsSelector)
