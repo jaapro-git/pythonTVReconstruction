@@ -1,5 +1,8 @@
 import numpy as np
 import ipywidgets as widget
+
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
   
 anglesSelector = widget.Dropdown(
     options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
