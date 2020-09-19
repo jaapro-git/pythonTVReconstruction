@@ -19,8 +19,8 @@ angleTypeSelector = widget.Dropdown(
 )
     
 alphaSelector = widget.Dropdown(
-    options=[('10⁻⁴', -4), ('1', 0), ('10⁴', 4)],
-    value=0,
+    options=[('10⁻⁶', -7), ('10⁻⁵', -5), ('10⁻⁴', -3), ('1', 0)],
+    value=-5,
     description='Regularisation Parameter:',
     disabled=False,
 )
