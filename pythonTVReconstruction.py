@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
   
 anglesSelector = widget.Dropdown(
-    options=[('10 Angles', 10), ('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60)],
+    options=[('12 Angles', 12), ('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60)],
     value=20,
     description='Number of Angles:',
     disabled=False,
