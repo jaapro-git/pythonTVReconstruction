@@ -154,3 +154,73 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
     bar.value = i + 1 
     
   return u
+
+def drawPlots():
+  
+  # Helper function to draw the default plots
+  fig = plt.figure(1)
+  fig.suptitle('Tulosten vertailu')
+  spec = gridspec.GridSpec(ncols = 5, nrows = 3, figure = fig)
+
+  fig.add_subplot(spec[0,0])
+  plt.imshow(sinogram120, aspect='auto')
+  plt.gray()
+  plt.title('Original Sinogram')
+  plt.autoscale()
+
+  fig.add_subplot(spec[0,1])
+  plt.imshow(fbp120)
+  plt.gray()
+  plt.title('Filtered Back Projection with 120 angles')
+  plt.autoscale()
+
+  fig.add_subplot(spec[0,4])
+  plt.imshow(tvImgFull1)
+  plt.gray()
+  plt.title('TV Regularisation with 120 angles, 1 iterations')
+  plt.autoscale()
+
+  fig.add_subplot(spec[0,3])
+  plt.imshow(tvImgFull10)
+  plt.gray()
+  plt.title('TV Regularisation with 120 angles, 10 iterations')
+  plt.autoscale()
+
+  fig.add_subplot(spec[0,2])
+  plt.imshow(tvImgFullMax)
+  plt.gray()
+  plt.title('TV Regularisation with 120 angles, ' + str(iterations) + ' iterations')
+  plt.autoscale()
+
+  fig.add_subplot(spec[1,0])
+  plt.imshow(sinogramSample, aspect='auto')
+  plt.gray()
+  plt.title('Downsampled Sinogram with ' + str(angles) + ' angles')
+  plt.autoscale()
+
+  fig.add_subplot(spec[1,1])
+  plt.imshow(fbpSample)
+  plt.gray()
+  plt.title('Filtered Back Projection with ' + str(angles) + ' angles')
+  plt.autoscale()
+
+  fig.add_subplot(spec[1,4])
+  plt.imshow(tvImgSample1)
+  plt.gray()
+  plt.title('TV Regularisation with ' + str(angles) + ' angles, 1 iterations')
+  plt.autoscale()
+
+  fig.add_subplot(spec[1,3])
+  plt.imshow(tvImgSample10)
+  plt.gray()
+  plt.title('TV Regularisation with ' + str(angles) + ' angles, 10 iterations')
+  plt.autoscale()
+
+  fig.add_subplot(spec[1,2])
+  plt.imshow(tvImgSampleMax)
+  plt.gray()
+  plt.title('TV Regularisation with ' + str(angles) + ' angles, ' + str(iterations) + ' iterations')
+  plt.autoscale()
+
+  fig.set_size_inches(w=25,h=12)
+  plt.autoscale()
