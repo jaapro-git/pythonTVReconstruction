@@ -31,10 +31,10 @@ iterationsSelector = widget.Dropdown(
 
 def displayParameterWidgets():
 
-  display(anglesSelector)
-  display(angleTypeSelector)
-  display(alphaSelector)
-  display(iterationsSelector)
+  display(global anglesSelector)
+  display(global angleTypeSelector)
+  display(global alphaSelector)
+  display(global iterationsSelector)
 
 def _proximal(u, alpha, p):
   # Solves v + alpha*v^(p-1) = u for non-negative u
