@@ -151,6 +151,6 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
     # Leading point
     u_ = 2 * u - uold
 
-    bar.value = i 
+    bar.value = i + 1 
     
   return u
