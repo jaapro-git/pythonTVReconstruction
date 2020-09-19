@@ -30,10 +30,10 @@ iterationsSelector = widget.Dropdown(
 )
 
 def displayParameterWidgets():
-  anglesSelector = global anglesSelector
-  angleTypeSelector = global angleTypeSelector
-  alphaSelector = global alphaSelector
-  iterationsSelector = global iterationsSelector
+  global anglesSelector
+  global angleTypeSelector
+  global alphaSelector
+  global iterationsSelector
 
   display(anglesSelector)
   display(angleTypeSelector)
