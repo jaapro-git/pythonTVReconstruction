@@ -26,7 +26,7 @@ alphaSelector = widget.Dropdown(
 )
   
 iterationsSelector = widget.Dropdown(
-    options=[100, 1000, 10000],
+    options=[('10²', 100), ('10³', 1000), ('10⁴',10000)],
     value=100,
     description='Number of Iterations:',
     disabled=False,
