@@ -1,28 +1,28 @@
 import numpy as np
 import ipywidgets as widget
   
-global anglesSelector = widget.Dropdown(
+anglesSelector = widget.Dropdown(
     options=[('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60), ('120 Angles', 120)],
     value=120,
     description='Number of Angles:',
     disabled=False,
 )
 
-global angleTypeSelector = widget.Dropdown(
+angleTypeSelector = widget.Dropdown(
     options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
     value='sparse',
     description='Type of Angles',
     disabled=False,
 )
     
-global alphaSelector = widget.Dropdown(
+alphaSelector = widget.Dropdown(
     options=[('10⁻⁴', -4), ('1', 0), ('10^4', 4)],
     value=0,
     description='Regularisation Parameter:',
     disabled=False,
 )
   
-global iterationsSelector = widget.Dropdown(
+iterationsSelector = widget.Dropdown(
     options=[1, 10, 100, 1000, 10000],
     value=1,
     description='Number of Iterations:',
