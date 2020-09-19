@@ -36,7 +36,7 @@ def displayParameterWidgets():
   display(alphaSelector)
   display(iterationsSelector)
 
-def proximal(u, alpha, p):
+def _proximal(u, alpha, p):
   # Solves v + alpha*v^(p-1) = u for non-negative u
   if(p == 2):
     # p == 2 is the simplest case
@@ -58,7 +58,7 @@ def proximal(u, alpha, p):
       
   return v
 
-def dxp(u):
+def _dxp(u):
   # Select columns from 2 to end, add the last original column as the last and finally subtract the original matrix
   [m,n] = u.shape
   dx = np.hstack((u[:,1:], u[:,n-1:n]))
@@ -66,7 +66,7 @@ def dxp(u):
   #dx = [u(:,2:end) u(:,end)] - u;
   return dx
 
-def dyp(u):
+def _dyp(u):
   # Select rows from 2 to end, add the last original row as the last and finally subtract the original matrix
   [m,n] = u.shape
   dy = np.vstack((u[1:,:], u[n-1:n,:]))
@@ -74,7 +74,7 @@ def dyp(u):
   #dy = [u(2:end,:); u(end,:)] - u;
   return dy
 
-def dxm_ad(u):
+def _dxm_ad(u):
   # Select first n-1 columns and add zeroes in the end. Then subtract a matrix with zeroes as the first column and the data from columns 1 to n-1
   [m,n] = u.shape
   dx = np.hstack((u[:,:n-1], np.zeros((m,1))))
@@ -82,7 +82,7 @@ def dxm_ad(u):
   #dx = [u(:,1:end-1) zeros(M,1)] - [zeros(M,1) u(:,1:end-1)];
   return dx
   
-def dym_ad(u):
+def _dym_ad(u):
   # Select first n-1 rows and add zeros at the bottom. The subtract a matrix with zeros as the top row and data from rows 1 to n-1
   [m,n] = u.shape
   dy = np.vstack((u[:n-1,:], np.zeros((1,n))))
@@ -120,13 +120,13 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
     # Ascend step for v
     v = v + sigma * ((A * u.flatten('F')).reshape((m.shape), order = 'F') - m)
     vabs = np.abs(v)
-    vabsnew = proximal(vabs, sigma, q_exp_dual)
+    vabsnew = _proximal(vabs, sigma, q_exp_dual)
     I = vabs > 0
     v[I] = v[I] / vabs[I] * vabsnew[I]
 
     # Ascend step for p
-    ux = dxp(u_)
-    uy = dyp(u_)
+    ux = _dxp(u_)
+    uy = _dyp(u_)
 
     px = px + sigma * ux
     py = py + sigma * uy
@@ -139,7 +139,7 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
     # Descend step
     uold = u
     adjoint = (A.transpose() * v.flatten('F')).reshape((N,N), order='F')
-    div = dxm_ad(px) + dym_ad(py)
+    div = _dxm_ad(px) + _dym_ad(py)
 
     u = u - tau * (adjoint - div)
     u = np.maximum([0], u)
@@ -148,6 +148,5 @@ def reconstructTotalVariation(m, A, q_exp, lamb, maxits):
     u_ = 2 * u - uold
 
     bar.value = i 
-
-  #plt.imshow(u)
+    
   return u
