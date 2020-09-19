@@ -1,10 +1,10 @@
 import numpy as np
 import ipywidgets as widget
 
-def anglesSelector
-def angleTypeSelector
-def alphaSelector
-def iterationsSelector
+anglesSelector
+angleTypeSelector
+alphaSelector
+iterationsSelector
 
 def displayParameterWidgets():
   # Define processing parameters
