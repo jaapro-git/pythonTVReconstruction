@@ -33,6 +33,8 @@ iterationsSelector = widget.Dropdown(
 )
 
 def displayParameterWidgets():
+  # Display the UI widgets
+  
   global anglesSelector
   global angleTypeSelector
   global alphaSelector
