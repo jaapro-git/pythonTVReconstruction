@@ -5,30 +5,30 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
   
 anglesSelector = widget.Dropdown(
-    options=[('12 Angles', 12), ('20 Angles', 20), ('40 Angles', 40), ('60 Angles', 60)],
+    options=[('12 kulmaa', 12), ('20 kulmaa', 20), ('40 kulmaa', 40), ('60 kulmaa', 60)],
     value=20,
-    description='Number of Angles:',
+    description='Kulmien lukumäärä:',
     disabled=False,
 )
 
 angleTypeSelector = widget.Dropdown(
-    options=[('Sparse Angles', 'sparse'), ('Dense Angles', 'dense')],
+    options=[('Harvakulma', 'sparse'), ('Tiheäkulma', 'dense')],
     value='sparse',
-    description='Type of Angles',
+    description='Kulmien tyyppi',
     disabled=False,
 )
     
 alphaSelector = widget.Dropdown(
     options=[('10⁻⁶', -7), ('10⁻⁵', -5), ('10⁻⁴', -3), ('1', 0)],
     value=-5,
-    description='Regularisation Parameter:',
+    description='Regularisaatioparametri:',
     disabled=False,
 )
   
 iterationsSelector = widget.Dropdown(
     options=[('10²', 100), ('10³', 1000), ('10⁴',10000), ('10⁵',100000)],
     value=100,
-    description='Number of Iterations:',
+    description='Toistojen lukumäärä:',
     disabled=False,
 )
 
