@@ -13,7 +13,7 @@ anglesSelector = widget.Dropdown(
 
 angleTypeSelector = widget.Dropdown(
     options=[('Harvakulma', 'sparse'), ('Tiheäkulma', 'dense')],
-    value='sparse',
+    value='dense',
     description='Kulmien tyyppi',
     disabled=False,
 )
